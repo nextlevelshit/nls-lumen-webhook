@@ -18,13 +18,12 @@ class HookController extends BaseController
      */
     public function __construct(Request $request)
     {
-        $this->repository = new Repository($request->all());
+        $this->repository = new Repository();
+        $this->repository->fill($request->input('repository'));
     }
 
     public function onPush() 
     {
-        print_r($this->repository);
-
-        die();
+        dd($this->repository);
     }
 }

@@ -4,13 +4,16 @@ namespace App\Http\Middleware;
 
 use Closure;
 use App\Repository;
+use Illuminate\Http\Request;
 
 class RepositoryMiddleware
 {
-    protected $allowedRepositories;
+    protected $repository;
 
-    function __construct() {
-        $this->allowedRepositories = explode(';', env('ALLOWED_REPOSITORIES'));
+    function __construct(Request $request)
+    {
+        $this->repository = new Repository();
+        $this->repository->fill($request->input('repository')); 
     }
 
     /**
@@ -21,12 +24,10 @@ class RepositoryMiddleware
      * @param  string|null  $guard
      * @return mixed
      */
-    public function handle($request, Closure $next, $action = null)
+    public function handle(Request $request, Closure $next, $action = null)
     {
-        $repositoryName = $request->input('repository.name');
-
-        if (!in_array($repositoryName, $this->allowedRepositories)) {
-            return response('Unauthorized.', 401);
+        if ($this->repository->isNotValid()) {
+            return response('Repository not authorized.', 401);
         }
 
         return $next($request);

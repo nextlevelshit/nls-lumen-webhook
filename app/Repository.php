@@ -6,6 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Repository extends Model
 {
+    protected $validRepositories;
+
+    function __construct() {
+        $this->validRepositories = explode(';', env('VALID_REPOSITORIES'));
+    }
 
     /**
      * The attributes that are mass assignable.
@@ -13,7 +18,7 @@ class Repository extends Model
      * @var array
      */
     protected $fillable = [
-        'id', 'name', 'full_name'
+        'id', 'name', 'full_name', 'html_url'
     ];
 
     /**
@@ -25,7 +30,19 @@ class Repository extends Model
         'email',
     ];
 
-    public function notAllowed() {
-        return true;
+    /**
+     * Compare valid list with incoming repository.
+     * 
+     * @return boolean
+     */
+
+    public function isValid() 
+    {
+        return in_array($this->name, $this->validRepositories);
+    }
+
+    public function isNotValid()
+    {
+        return !$this->isValid();
     }
 }
