@@ -18,7 +18,11 @@ class Repository extends Model
      * @var array
      */
     protected $fillable = [
-        'id', 'name', 'full_name', 'html_url'
+        'id',
+        'name',
+        'full_name',
+        'html_url',
+        'ssh_url'
     ];
 
     /**
