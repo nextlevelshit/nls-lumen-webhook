@@ -9,7 +9,7 @@ class Repository extends Model
     protected $validRepositories;
 
     function __construct() {
-        $this->validRepositories = explode(';', env('VALID_REPOSITORIES'));
+        $this->validRepositories = explode(';', env('REPO_VALID_LIST'));
     }
 
     /**
