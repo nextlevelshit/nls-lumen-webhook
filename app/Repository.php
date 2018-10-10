@@ -22,7 +22,8 @@ class Repository extends Model
         'name',
         'full_name',
         'html_url',
-        'ssh_url'
+        'ssh_url',
+        'default_branch'
     ];
 
     /**
