@@ -12,7 +12,7 @@ class RepositoryMiddleware
 
     function __construct(Request $request)
     {
-        $this->repository = new Repository();
+	$this->repository = new Repository();
         $this->repository->fill($request->input('repository')); 
     }
 

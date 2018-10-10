@@ -15,8 +15,8 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-
-$router->post('/webhook/push', [
-    'middleware' => 'repository:push',
-    'uses' => 'HookController@onPush'
+$router->post('/', [
+   'middleware' => 'repository:push',
+   'uses' => 'HookController@onPush'
 ]);
+
