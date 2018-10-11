@@ -12,10 +12,15 @@
 ## Installation
 
 1. Clone the repository `git@github.com:nextlevelshit/nls-lumen-webhook.git` (*https is also possible*)
+
 2. Install dependencies:
+
   2.1. Change to directory `cd nls-lumen-webhook` (*if you haven't renamed it*)
-  2.1. Start downloading composer dependencies `composer install`
+ 
+  2.2. Start downloading composer dependencies `composer install`
+
 3. Copy configurations `cp .env.example .env`
+
 4. Set configurations `vim .env`
 
 ## Configuration
