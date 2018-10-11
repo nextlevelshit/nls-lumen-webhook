@@ -3,7 +3,11 @@
   <sup>Simplify your webhooks with a Laravel lumen API endpoint.</sup>
 </div>
 
+<br>
+
 *That automated webhook deployment system is planned to support you updating your server automatically as soon as someone uploads any new files, changes content or simply pushs anything to your repository. It is meant to be a simple continious integration tool for developer novices. I am using it to trigger a pull request on my server as soon my client pushes any new content inside her GitHub repository. Her website is hosted on GitHub and has to be updated, pulled and deployed on the server.*
+
+<br>
 
 ## Installation
 
